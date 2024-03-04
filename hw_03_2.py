@@ -8,7 +8,7 @@ def get_numbers_ticket(min_value: int = 1, max_value: int = 36, quantity: int = 
         if min_value > max_value:
             min_value, max_value = max_value, min_value
 
-        if min_value > 0 and max_value > 0:
+        if min_value >= 0 and max_value >= 0:
             max_value += 1
 
         if min_value < 0 and min_value < 0:

@@ -58,10 +58,11 @@ def main() -> None:
         {"name": "John Doe1", "birthday": "1980.02.26"},
         {"name": "John Doe2", "birthday": "1980.03.01"},
         {"name": "John Doe3", "birthday": "1980.03.02"},
-        {"name": "John Doe3", "birthday": "1980.03.03"},
-        {"name": "John Doe3", "birthday": "1980.03.04"},
+        {"name": "John Doe4", "birthday": "1980.03.03"},
+        {"name": "John Doe5", "birthday": "1980.03.04"},
         {"name": "John Doe", "birthday": "1985.01.23"},
-        {"name": "Jane Smith", "birthday": "1990.01.27"}
+        {"name": "Jane Smith", "birthday": "1990.01.27"},
+        {"name": "Jane Smith1", "birthday": "1990.03.08"}
     ]
 
     upcoming_birthdays = get_upcoming_birthdays(users_list)
