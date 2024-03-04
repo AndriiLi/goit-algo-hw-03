@@ -33,17 +33,18 @@ def get_upcoming_birthdays(users=None) -> list:
             user['age'] = user_birthday_date_this_year.year - user_birthday_date.year
 
             if current_monday <= user_birthday_date_this_year < current_saturday:
-                user['is_congratulated'] = True if user_birthday_date_this_year < current_date else False
+                user['congratulation_date'] = user_birthday_date_this_year.strftime('%Y.%m.%d')
+                user['is_moved_from_weekend'] = False
                 congratulation_list.append(user)
 
             if user_birthday_date_this_year == previous_saturday:
-                user['birthday'] = (user_birthday_date_this_year + timedelta(days=2)).strftime('%y.%m.%d')
-                user['is_congratulated'] = True if user_birthday_date_this_year < current_date else False
+                user['congratulation_date'] = (user_birthday_date_this_year + timedelta(days=2)).strftime('%Y.%m.%d')
+                user['is_moved_from_weekend'] = True
                 congratulation_list.append(user)
 
             if user_birthday_date_this_year == previous_sunday:
-                user['birthday'] = (user_birthday_date_this_year + timedelta(days=1)).strftime('%y.%m.%d')
-                user['is_congratulated'] = True if user_birthday_date_this_year < current_date else False
+                user['congratulation_date'] = (user_birthday_date_this_year + timedelta(days=1)).strftime('%Y.%m.%d')
+                user['is_moved_from_weekend'] = True
                 congratulation_list.append(user)
 
         return congratulation_list
@@ -57,6 +58,8 @@ def main() -> None:
         {"name": "John Doe1", "birthday": "1980.02.26"},
         {"name": "John Doe2", "birthday": "1980.03.01"},
         {"name": "John Doe3", "birthday": "1980.03.02"},
+        {"name": "John Doe3", "birthday": "1980.03.03"},
+        {"name": "John Doe3", "birthday": "1980.03.04"},
         {"name": "John Doe", "birthday": "1985.01.23"},
         {"name": "Jane Smith", "birthday": "1990.01.27"}
     ]
