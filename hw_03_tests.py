@@ -55,10 +55,10 @@ class TestLottery(unittest.TestCase):
         self.assertTrue(len(get_numbers_ticket(1, 5, 5)))
 
     def test_lottery_1_of_5_choose_10(self):
-        self.assertFalse(len(get_numbers_ticket(1, 5, 10)))
+        self.assertTrue(len(get_numbers_ticket(1, 5, 10)) == 0)
 
     def test_lottery_input_not_valid_parameter(self):
-        self.assertIsNone(get_numbers_ticket('a', 'b', 'c'))
+        self.assertTrue(len(get_numbers_ticket('a', 'b', 'c')) == 0)
 
     def test_lottery_input_without_parameter(self):
         self.assertTrue(len(get_numbers_ticket()))
@@ -105,11 +105,8 @@ class TestBirthdayList(unittest.TestCase):
         self.assertEqual(len(get_upcoming_birthdays(users_list)), 0)
 
     def test_birthday_list(self):
-        current_date = datetime.now()
-        current_week_day = current_date.weekday()
-        monday_date = current_date - timedelta(days=current_week_day)
-        birthday_date = monday_date.replace(year=1980).strftime('%Y.%m.%d')
-
+        current_date = datetime.now().date()
+        birthday_date = current_date.strftime('%Y.%m.%d')
         users_list = [
             {"name": "John Doe1", "birthday": birthday_date},
         ]
